@@ -1,0 +1,27 @@
+{
+  "name": "create-discordeno-bot",
+  "version": "1.0.0",
+  "description": "A quick CLI to create a Discordeno Bot.",
+  "author": "Reboot-Codes <55662140+Reboot-Codes@users.noreply.github.com>",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "yarn@3.2.0",
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "commander": "^9.2.0",
+    "inquirer": "^8.2.2",
+    "ora": "^6.1.0"
+  },
+  "devDependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^12.4.1",
+    "prettier": "^2.6.2"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}
