@@ -6,6 +6,7 @@
   "license": "MIT",
   "private": true,
   "type": "module",
+  "main": "./src/app.js",
   "packageManager": "yarn@3.2.0",
   "scripts": {
     "prepare": "husky install"
