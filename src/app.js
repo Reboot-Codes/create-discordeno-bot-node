@@ -9,7 +9,7 @@ program
   .description('A quick CLI to create a Discordeno Bot.')
   .version('1.0.0')
   .action(() => {
-    console.log(`Hey there 👋, thanks for using ${chalk.underline('discordeno')}.\n`);
+    console.log(`${chalk.blue(`>`)} Hey there 👋, thanks for using ${chalk.cyan('discordeno')}.\n`);
     inquirer
       .prompt([
         {
@@ -48,23 +48,29 @@ program
         }
 
         console.log(
-          `\nOkay, we're going to create a ${chalk.underline(answers['botType'])}.\n${
-            framework == 'none' ? `Without a framework` : `With the ${chalk.underline(framework)} framework.`
+          `\n${chalk.blue(`>`)} Okay, we're going to create a ${chalk.cyan(answers['botType'])}.\n${
+            framework == 'none'
+              ? `${chalk.blue(`>`)} Without a framework.`
+              : `${chalk.blue(`>`)} With the ${chalk.cyan(framework)} framework.`
           }`
         );
 
         await exec('deno --version', (error, stdout, stderr) => {
           if (error) {
-            console.error('Aww shnap! There was a problem:');
+            console.error(`${chalk.red(`!`)} Aww shnap! There was a problem:`);
             console.error(error);
             exit(1);
           }
           if (stderr) {
-            console.error('Aww shnap! There was a problem:');
+            console.error(`${chalk.red(`!`)} Aww shnap! There was a problem:`);
             console.error(stderr);
             exit(1);
           }
-          console.log(`\nIt looks like you have ${chalk.underline(stdout.split('\n')[0])}!`);
+          console.log(
+            `\n${chalk.blue(`>`)} It looks like you have ${chalk.cyan(
+              stdout.split('\n')[0].split(' ').slice(0, 2).join(' ')
+            )}!`
+          );
         });
       });
   });
